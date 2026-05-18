@@ -1,0 +1,79 @@
+import 'package:bench_boost_program/provider/ProviderHome.dart';
+import 'package:bench_boost_program/provider/provider/dataprovider.dart';
+import 'package:bench_boost_program/riverpod/RiverpodHome.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+void main() {
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider<DataProvider>(create: (_) => DataProvider())
+      ],
+      child: MyApp(),
+    ),
+  );
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
+      home: const MyHomePage(title: 'Bench Booster'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(widget.title)),
+      body: ListView(
+        children: <Widget>[
+          ListTile(
+            title: const Text('Provider', style: TextStyle(fontWeight: FontWeight.w400, fontSize: 24),),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProviderHone()),
+              );
+            },
+          ),
+          const Divider(
+            height: 1,
+            thickness: 2,
+            color: Colors.grey,
+            indent: 16,
+            endIndent: 16,
+          ),
+           ListTile(
+            title: Text('Riverpod',style: TextStyle(fontWeight:  FontWeight.w400, fontSize: 24),),
+            trailing: Icon(Icons.chevron_right), // Right arrow icon
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const RiverpodHone()),
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
