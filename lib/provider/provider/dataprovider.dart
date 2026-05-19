@@ -9,7 +9,7 @@ class DataProvider with ChangeNotifier {
   bool loading = false;
   Services services = Services();
 
-  getPostData(context) async {
+  Future<void> getPostData(dynamic context) async {
     loading = true;
     data = await services.getData(context);
     loading = false;

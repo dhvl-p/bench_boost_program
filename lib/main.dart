@@ -2,15 +2,18 @@ import 'package:bench_boost_program/provider/ProviderHome.dart';
 import 'package:bench_boost_program/provider/provider/dataprovider.dart';
 import 'package:bench_boost_program/riverpod/RiverpodHome.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart' hide ChangeNotifierProvider;
 import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider<DataProvider>(create: (_) => DataProvider())
-      ],
-      child: MyApp(),
+    ProviderScope(
+      child: MultiProvider(
+        providers: [
+          ChangeNotifierProvider<DataProvider>(create: (_) => DataProvider())
+        ],
+        child: MyApp(),
+      ),
     ),
   );
 }
