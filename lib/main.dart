@@ -1,6 +1,7 @@
 import 'package:bench_boost_program/provider/ProviderHome.dart';
 import 'package:bench_boost_program/provider/provider/dataprovider.dart';
 import 'package:bench_boost_program/riverpod/RiverpodHome.dart';
+import 'package:bench_boost_program/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart' hide ChangeNotifierProvider;
 import 'package:provider/provider.dart';
@@ -25,9 +26,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: const MyHomePage(title: 'Bench Booster'),
+      title: 'Bench Booster',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)),
+      home: const SplashScreen(),
     );
   }
 }
