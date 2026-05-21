@@ -1,9 +1,11 @@
+import 'package:bench_boost_program/getx/GetxHome.dart';
 import 'package:bench_boost_program/provider/ProviderHome.dart';
 import 'package:bench_boost_program/provider/provider/dataprovider.dart';
 import 'package:bench_boost_program/riverpod/RiverpodHome.dart';
 import 'package:bench_boost_program/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart' hide ChangeNotifierProvider;
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -25,10 +27,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Bench Booster',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)),
+      //theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)),
       home: const SplashScreen(),
     );
   }
@@ -74,6 +76,23 @@ class _MyHomePageState extends State<MyHomePage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const RiverpodHone()),
+              );
+            },
+          ),
+          const Divider(
+            height: 1,
+            thickness: 2,
+            color: Colors.grey,
+            indent: 16,
+            endIndent: 16,
+          ),
+          ListTile(
+            title: const Text('GetX - Photos', style: TextStyle(fontWeight: FontWeight.w400, fontSize: 24)),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const GetxHome()),
               );
             },
           ),
