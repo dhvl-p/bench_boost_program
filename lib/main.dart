@@ -1,8 +1,10 @@
 import 'package:bench_boost_program/getx/GetxHome.dart';
+import 'package:bench_boost_program/isolates/isolates_simple_home.dart';
 import 'package:bench_boost_program/provider/ProviderHome.dart';
 import 'package:bench_boost_program/provider/provider/dataprovider.dart';
 import 'package:bench_boost_program/riverpod/RiverpodHome.dart';
 import 'package:bench_boost_program/splash_screen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart' hide ChangeNotifierProvider;
 import 'package:get/get.dart';
@@ -96,6 +98,25 @@ class _MyHomePageState extends State<MyHomePage> {
               );
             },
           ),
+          const Divider(
+            height: 1,
+            thickness: 2,
+            color: Colors.grey,
+            indent: 16,
+            endIndent: 16,
+          ),
+          ListTile(
+            title: const Text('Isolates Demo', style: TextStyle(fontWeight: FontWeight.w400, fontSize: 24)),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const IsolatesSimpleHome()),
+              );
+            },
+          ),
+
+
         ],
       ),
     );
