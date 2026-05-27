@@ -1,3 +1,4 @@
+import 'package:bench_boost_program/getx/GetxGraphQLHome.dart';
 import 'package:bench_boost_program/getx/GetxHome.dart';
 import 'package:bench_boost_program/isolates/isolates_simple_home.dart';
 import 'package:bench_boost_program/provider/ProviderHome.dart';
@@ -95,6 +96,23 @@ class _MyHomePageState extends State<MyHomePage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const GetxHome()),
+              );
+            },
+          ),
+          const Divider(
+            height: 1,
+            thickness: 2,
+            color: Colors.grey,
+            indent: 16,
+            endIndent: 16,
+          ),
+          ListTile(
+            title: const Text('GetX - GraphQL (Photos)', style: TextStyle(fontWeight: FontWeight.w400, fontSize: 24)),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const GetxGraphQLHome()),
               );
             },
           ),
