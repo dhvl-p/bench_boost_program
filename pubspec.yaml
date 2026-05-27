@@ -40,6 +40,7 @@ dependencies:
   get: ^4.7.2
   cached_network_image: ^3.4.1
   graphql: ^5.2.4
+  web_socket_channel: ^3.0.3
 
 dev_dependencies:
   flutter_test:
