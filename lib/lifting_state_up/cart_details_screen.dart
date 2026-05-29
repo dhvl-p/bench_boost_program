@@ -76,7 +76,7 @@ class CartDetailsScreen extends StatelessWidget {
                             style: const TextStyle(fontWeight: FontWeight.bold),
                           ),
                           subtitle: Text(
-                            '\$${product.price.toStringAsFixed(2)}',
+                            '\u{20B9}${product.price.toStringAsFixed(2)}',
                             style: TextStyle(color: Colors.grey.shade700, fontWeight: FontWeight.w500),
                           ),
                           trailing: IconButton(

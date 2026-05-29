@@ -129,7 +129,7 @@ class ProductListScreen extends StatelessWidget {
                             ),
                             const SizedBox(height: 4),
                             Text(
-                              '\$${product.price.toStringAsFixed(2)}',
+                              '\u{20B9}${product.price.toStringAsFixed(2)}',
                               style: TextStyle(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w600,
