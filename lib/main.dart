@@ -7,6 +7,7 @@ import 'package:bench_boost_program/provider/provider/dataprovider.dart';
 import 'package:bench_boost_program/riverpod/RiverpodHome.dart';
 import 'package:bench_boost_program/splash_screen.dart';
 import 'package:bench_boost_program/lifting_state_up/cart_demo_home.dart';
+import 'package:bench_boost_program/mobx/MobxHome.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart' hide ChangeNotifierProvider;
@@ -98,6 +99,23 @@ class _MyHomePageState extends State<MyHomePage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const GetxHome()),
+              );
+            },
+          ),
+          const Divider(
+            height: 1,
+            thickness: 2,
+            color: Colors.grey,
+            indent: 16,
+            endIndent: 16,
+          ),
+          ListTile(
+            title: const Text('MobX - Photos', style: TextStyle(fontWeight: FontWeight.w400, fontSize: 24)),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const MobxHome()),
               );
             },
           ),
