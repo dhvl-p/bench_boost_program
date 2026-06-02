@@ -1,6 +1,7 @@
 import 'package:bench_boost_program/riverpod/provider/post_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get/get.dart';
 
 class RiverpodHone extends ConsumerWidget {
   const RiverpodHone({super.key});
@@ -11,10 +12,10 @@ class RiverpodHone extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Riverpod'),
+        title: Text('riverpod_app_bar_title'.tr),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => Get.back(),
         ),
       ),
       body: postState.when(
@@ -27,7 +28,7 @@ class RiverpodHone extends ConsumerWidget {
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () => ref.read(postProvider.notifier).getPosts(),
-                child: const Text('Retry'),
+                child: Text('retry'.tr),
               ),
             ],
           ),

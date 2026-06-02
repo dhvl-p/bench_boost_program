@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'product_model.dart';
 
 class CartDetailsScreen extends StatelessWidget {
@@ -22,9 +23,9 @@ class CartDetailsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Your Cart',
-          style: TextStyle(fontWeight: FontWeight.bold),
+        title: Text(
+          'your_cart_title'.tr,
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.indigo.shade900,
         foregroundColor: Colors.white,
@@ -40,14 +41,14 @@ class CartDetailsScreen extends StatelessWidget {
           Container(
             color: Colors.green.shade50,
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-            child: const Row(
+            child: Row(
               children: [
-                Icon(Icons.sync, color: Colors.green),
-                SizedBox(width: 12),
+                const Icon(Icons.sync, color: Colors.green),
+                const SizedBox(width: 12),
                 Expanded(
                   child: Text(
-                    'Screen 2 (Cart): Removing items here updates the shared parent state, which synchronizes both screens.',
-                    style: TextStyle(fontSize: 13, color: Colors.green, fontWeight: FontWeight.w500),
+                    'cart_banner'.tr,
+                    style: const TextStyle(fontSize: 13, color: Colors.green, fontWeight: FontWeight.w500),
                   ),
                 ),
               ],
@@ -86,7 +87,7 @@ class CartDetailsScreen extends StatelessWidget {
                               ScaffoldMessenger.of(context).clearSnackBars();
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content: Text('${product.name} removed from cart.'),
+                                content: Text('item_removed_from_cart'.trParams({'name': product.name})),
                                   duration: const Duration(seconds: 1),
                                 ),
                               );
@@ -111,12 +112,12 @@ class CartDetailsScreen extends StatelessWidget {
           Icon(Icons.shopping_cart_outlined, size: 80, color: Colors.grey.shade400),
           const SizedBox(height: 16),
           Text(
-            'Your cart is empty',
+            'cart_empty_title'.tr,
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.grey.shade600),
           ),
           const SizedBox(height: 8),
           Text(
-            'Add some tech products to see them here!',
+            'cart_empty_subtitle'.tr,
             style: TextStyle(color: Colors.grey.shade500),
           ),
           const SizedBox(height: 24),
@@ -129,7 +130,7 @@ class CartDetailsScreen extends StatelessWidget {
             ),
             onPressed: onBack,
             icon: const Icon(Icons.shopping_bag_outlined),
-            label: const Text('Shop Products', style: TextStyle(fontWeight: FontWeight.bold)),
+            label: Text('shop_products'.tr, style: const TextStyle(fontWeight: FontWeight.bold)),
           ),
         ],
       ),
@@ -148,7 +149,7 @@ class CartDetailsScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text('Subtotal', style: TextStyle(fontSize: 15, color: Colors.grey)),
+                Text('subtotal'.tr, style: const TextStyle(fontSize: 15, color: Colors.grey)),
                 Text('\$${subtotal.toStringAsFixed(2)}', style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
               ],
             ),
@@ -156,7 +157,7 @@ class CartDetailsScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text('Estimated Tax (10%)', style: TextStyle(fontSize: 15, color: Colors.grey)),
+                Text('estimated_tax'.tr, style: const TextStyle(fontSize: 15, color: Colors.grey)),
                 Text('\$${tax.toStringAsFixed(2)}', style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
               ],
             ),
@@ -164,9 +165,9 @@ class CartDetailsScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  'Order Total',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                Text(
+                  'order_total'.tr,
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 Text(
                   '\$${total.toStringAsFixed(2)}',
@@ -189,23 +190,25 @@ class CartDetailsScreen extends StatelessWidget {
                   showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
-                      title: const Text('Order Placed!'),
-                      content: Text('Thank you! Your order of \$${total.toStringAsFixed(2)} has been submitted.'),
+                      title: Text('order_placed_title'.tr),
+                       content: Text(
+                        'order_placed_message'.trParams({'total': total.toStringAsFixed(2)}),
+                      ),
                       actions: [
                         TextButton(
                           onPressed: () {
-                            Navigator.pop(context);
+                            Get.back();
                             onBack(); // Go back to shop
                           },
-                          child: const Text('OK'),
+                          child: Text('ok'.tr),
                         )
                       ],
                     ),
                   );
                 },
-                child: const Text(
-                  'Proceed to Checkout',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                child: Text(
+                  'proceed_to_checkout'.tr,
+                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
             ),

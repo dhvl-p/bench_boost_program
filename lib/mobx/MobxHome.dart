@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:bench_boost_program/mobx/store/photo_store.dart';
 import 'package:bench_boost_program/getx/model/photo_model.dart';
+import 'package:get/get.dart';
 
 class MobxHome extends StatefulWidget {
   const MobxHome({super.key});
@@ -29,11 +30,11 @@ class _MobxHomeState extends State<MobxHome> {
         elevation: 0.5,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black87),
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => Get.back(),
         ),
-        title: const Text(
-          'MobX Photos',
-          style: TextStyle(
+        title: Text(
+          'mobx_app_bar_title'.tr,
+          style: const TextStyle(
             color: Colors.black87,
             fontWeight: FontWeight.bold,
             fontSize: 22,
@@ -65,7 +66,7 @@ class _MobxHomeState extends State<MobxHome> {
                 ),
                 const SizedBox(height: 20),
                 Text(
-                  'Loading Photos...',
+                  'loading_photos'.tr,
                   style: TextStyle(
                     color: Colors.black87.withValues(alpha: 0.7),
                     fontSize: 16,
@@ -91,9 +92,9 @@ class _MobxHomeState extends State<MobxHome> {
                     color: Colors.redAccent.withValues(alpha: 0.7),
                   ),
                   const SizedBox(height: 20),
-                  const Text(
-                    'Oops! Something went wrong',
-                    style: TextStyle(
+                  Text(
+                    'error_something_wrong'.tr,
+                    style: const TextStyle(
                       color: Colors.black87,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -113,7 +114,7 @@ class _MobxHomeState extends State<MobxHome> {
                   ElevatedButton.icon(
                     onPressed: () => store.refreshPhotos(),
                     icon: const Icon(Icons.refresh),
-                    label: const Text('Retry'),
+                    label: Text('retry'.tr),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black87,
                       foregroundColor: Colors.white,
@@ -142,9 +143,9 @@ class _MobxHomeState extends State<MobxHome> {
                   color: Colors.black38,
                 ),
                 const SizedBox(height: 16),
-                const Text(
-                  'No photos found',
-                  style: TextStyle(
+                Text(
+                  'no_photos_found'.tr,
+                  style: const TextStyle(
                     color: Colors.black54,
                     fontSize: 18,
                   ),
@@ -185,7 +186,7 @@ class _MobxHomeState extends State<MobxHome> {
                             size: 16, color: Color(0xFFE2B714)),
                         const SizedBox(width: 6),
                         Text(
-                          '${store.photos.length} Photos',
+                          'photos_count'.trParams({'count': '${store.photos.length}'}),
                           style: const TextStyle(
                             color: Color(0xFFE2B714),
                             fontWeight: FontWeight.w600,
@@ -197,7 +198,7 @@ class _MobxHomeState extends State<MobxHome> {
                   ),
                   const Spacer(),
                   Text(
-                    'Powered by MobX',
+                    'powered_by_mobx'.tr,
                     style: TextStyle(
                       color: Colors.black54,
                       fontSize: 12,

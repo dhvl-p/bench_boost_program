@@ -1,6 +1,7 @@
 import 'package:bench_boost_program/provider/provider/dataprovider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:get/get.dart';
 
 class ProviderHone extends StatefulWidget {
   const ProviderHone({super.key});
@@ -19,9 +20,9 @@ class _ProviderHoneState extends State<ProviderHone> {
   Widget build(BuildContext context) {
     final postMdl = Provider.of<DataProvider>(context);
     return Scaffold(
-      appBar: AppBar(title: const Text('Provider'), leading: IconButton(
+      appBar: AppBar(title: Text('provider_app_bar_title'.tr), leading: IconButton(
         icon: Icon(Icons.arrow_back),
-        onPressed: () => Navigator.of(context).pop(), // Manual back action
+        onPressed: () => Get.back(), // Manual back action
       ),),
       body: Container(
         padding: const EdgeInsets.all(20),

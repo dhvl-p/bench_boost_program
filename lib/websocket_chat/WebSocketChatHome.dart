@@ -52,7 +52,7 @@ class WebSocketChatHome extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.arrow_back_ios_new_rounded,
                 color: Color(0xFF374151), size: 20),
-            onPressed: () => Navigator.of(context).pop(),
+            onPressed: () => Get.back(),
           ),
           const SizedBox(width: 4),
 
@@ -86,9 +86,9 @@ class WebSocketChatHome extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'WebSocket Echo',
-                  style: TextStyle(
+                Text(
+                  'chat_title'.tr,
+                  style: const TextStyle(
                     color: Color(0xFF111827),
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -121,7 +121,7 @@ class WebSocketChatHome extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.delete_sweep_rounded,
                 color: Color(0xFF9CA3AF), size: 22),
-            tooltip: 'Clear chat',
+            tooltip: 'chat_clear_tooltip'.tr,
             onPressed: controller.clearChat,
           ),
         ],
@@ -159,13 +159,13 @@ class WebSocketChatHome extends StatelessWidget {
   String _connectionLabel(WsConnectionState state) {
     switch (state) {
       case WsConnectionState.connected:
-        return 'Connected';
+        return 'chat_status_connected'.tr;
       case WsConnectionState.connecting:
-        return 'Connecting…';
+        return 'chat_status_connecting'.tr;
       case WsConnectionState.disconnected:
-        return 'Disconnected';
+        return 'chat_status_disconnected'.tr;
       case WsConnectionState.error:
-        return 'Connection Error';
+        return 'chat_status_error'.tr;
     }
   }
 
@@ -198,8 +198,8 @@ class WebSocketChatHome extends StatelessWidget {
             Expanded(
               child: Text(
                 state == WsConnectionState.error
-                    ? 'Failed to connect. Please check connection.'
-                    : 'Disconnected from echo server.',
+                    ? 'chat_banner_error'.tr
+                    : 'chat_banner_disconnected'.tr,
                 style: const TextStyle(
                   color: Color(0xFF991B1B),
                   fontSize: 13,
@@ -216,9 +216,9 @@ class WebSocketChatHome extends StatelessWidget {
                   color: const Color(0xFFDC2626),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: const Text(
-                  'Retry',
-                  style: TextStyle(
+                child: Text(
+                  'retry'.tr,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
@@ -278,19 +278,19 @@ class WebSocketChatHome extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          const Text(
-            'Start a conversation',
-            style: TextStyle(
+          Text(
+            'chat_empty_title'.tr,
+            style: const TextStyle(
               color: Color(0xFF1F2937),
               fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
           ),
           const SizedBox(height: 8),
-          const Text(
-            'Type a message below.\nThe WebSocket server will mirror it back.',
+          Text(
+            'chat_empty_subtitle'.tr,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               color: Color(0xFF6B7280),
               fontSize: 14,
               height: 1.5,
@@ -379,11 +379,11 @@ class WebSocketChatHome extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       if (!isMe)
-                        const Padding(
-                          padding: EdgeInsets.only(bottom: 4),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 4),
                           child: Text(
-                            'Server',
-                            style: TextStyle(
+                            'chat_sender_server'.tr,
+                            style: const TextStyle(
                               color: Color(0xFF4F46E5),
                               fontSize: 11,
                               fontWeight: FontWeight.bold,
@@ -492,14 +492,14 @@ class WebSocketChatHome extends StatelessWidget {
               child: TextField(
                 controller: controller.textController,
                 style: const TextStyle(color: Color(0xFF1F2937), fontSize: 15),
-                decoration: const InputDecoration(
-                  hintText: 'Message…',
-                  hintStyle: TextStyle(
+                decoration: InputDecoration(
+                  hintText: 'chat_input_hint'.tr,
+                  hintStyle: const TextStyle(
                     color: Color(0xFF9CA3AF),
                     fontSize: 15,
                   ),
                   border: InputBorder.none,
-                  contentPadding: EdgeInsets.symmetric(
+                  contentPadding: const EdgeInsets.symmetric(
                       horizontal: 20, vertical: 12),
                 ),
                 textCapitalization: TextCapitalization.sentences,
@@ -560,13 +560,13 @@ class WebSocketChatHome extends StatelessWidget {
     if (dt.year == now.year &&
         dt.month == now.month &&
         dt.day == now.day) {
-      return 'Today';
+      return 'chat_today'.tr;
     }
     final yesterday = now.subtract(const Duration(days: 1));
     if (dt.year == yesterday.year &&
         dt.month == yesterday.month &&
         dt.day == yesterday.day) {
-      return 'Yesterday';
+      return 'chat_yesterday'.tr;
     }
     return '${dt.day}/${dt.month}/${dt.year}';
   }

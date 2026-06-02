@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'product_model.dart';
 
 class ProductListScreen extends StatelessWidget {
@@ -17,9 +18,9 @@ class ProductListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Tech Shop',
-          style: TextStyle(fontWeight: FontWeight.bold),
+        title: Text(
+          'tech_shop_title'.tr,
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.indigo.shade900,
         foregroundColor: Colors.white,
@@ -68,14 +69,14 @@ class ProductListScreen extends StatelessWidget {
           Container(
             color: Colors.indigo.shade50,
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-            child: const Row(
+            child: Row(
               children: [
-                Icon(Icons.info, color: Colors.indigo),
-                SizedBox(width: 12),
+                const Icon(Icons.info, color: Colors.indigo),
+                const SizedBox(width: 12),
                 Expanded(
                   child: Text(
-                    'Screen 1 (Catalog): Adding items here updates the shared parent state, which instantly updates the cart badge count.',
-                    style: TextStyle(fontSize: 13, color: Colors.indigo, fontWeight: FontWeight.w500),
+                    'product_catalog_banner'.tr,
+                    style: const TextStyle(fontSize: 13, color: Colors.indigo, fontWeight: FontWeight.w500),
                   ),
                 ),
               ],
@@ -155,10 +156,10 @@ class ProductListScreen extends StatelessWidget {
                                   ScaffoldMessenger.of(context).clearSnackBars();
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
-                                      content: Text('${product.name} added to cart!'),
+                                      content: Text('item_added_to_cart'.trParams({'name': product.name})),
                                       duration: const Duration(seconds: 1),
                                       action: SnackBarAction(
-                                        label: 'View Cart',
+                                        label: 'view_cart'.tr,
                                         textColor: Colors.amberAccent,
                                         onPressed: onViewCart,
                                       ),
@@ -166,7 +167,7 @@ class ProductListScreen extends StatelessWidget {
                                   );
                                 },
                                 child: Text(
-                                  isAlreadyInCart ? 'Add More' : 'Add to Cart',
+                                  isAlreadyInCart ? 'add_more'.tr : 'add_to_cart'.tr,
                                   style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
                                 ),
                               ),

@@ -1,5 +1,6 @@
 import 'dart:isolate';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class IsolatesSimpleHome extends StatefulWidget {
   const IsolatesSimpleHome({super.key});
@@ -34,9 +35,9 @@ class _IsolatesSimpleHomeState extends State<IsolatesSimpleHome> {
   void _runOnMainThread() {
     setState(() {
       _isLoading = true;
-      _runMethod = "Main Thread";
-      _executionTime = "Calculating...";
-      _result = "-";
+      _runMethod = 'isolates_run_method_main'.tr;
+      _executionTime = 'isolates_calculating'.tr;
+      _result = 'isolates_dash'.tr;
     });
 
     // Short delay to let the loading state render first
@@ -47,8 +48,8 @@ class _IsolatesSimpleHomeState extends State<IsolatesSimpleHome> {
 
       setState(() {
         _isLoading = false;
-        _executionTime = "${stopwatch.elapsedMilliseconds} ms";
-        _result = "$count primes found";
+        _executionTime = '${stopwatch.elapsedMilliseconds} ms';
+        _result = 'isolates_primes_found'.trParams({'count': '$count'});
       });
     });
   }
@@ -64,9 +65,9 @@ class _IsolatesSimpleHomeState extends State<IsolatesSimpleHome> {
   void _runOnIsolate() async {
     setState(() {
       _isLoading = true;
-      _runMethod = "Isolate.spawn";
-      _executionTime = "Calculating...";
-      _result = "-";
+      _runMethod = 'isolates_run_method_isolate'.tr;
+      _executionTime = 'isolates_calculating'.tr;
+      _result = 'isolates_dash'.tr;
     });
 
     final stopwatch = Stopwatch()..start();
@@ -83,8 +84,8 @@ class _IsolatesSimpleHomeState extends State<IsolatesSimpleHome> {
       if (mounted) {
         setState(() {
           _isLoading = false;
-          _executionTime = "${stopwatch.elapsedMilliseconds} ms";
-          _result = "$message primes found";
+          _executionTime = '${stopwatch.elapsedMilliseconds} ms';
+          _result = 'isolates_primes_found'.trParams({'count': '$message'});
         });
       }
 
@@ -98,10 +99,10 @@ class _IsolatesSimpleHomeState extends State<IsolatesSimpleHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Isolates'),
+        title: Text('isolates_app_bar_title'.tr),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => Get.back(),
         ),
       ),
       body: Container(
@@ -117,23 +118,22 @@ class _IsolatesSimpleHomeState extends State<IsolatesSimpleHome> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Isolates Demonstration',
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    Text(
+                      'isolates_demo_title'.tr,
+                      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      'This task calculates prime numbers up to 8,000,000. '
-                      'Observe the loading spinner below:',
+                      'isolates_description'.tr,
                       style: TextStyle(color: Colors.grey[700]),
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      '• Main Thread: The spinner freezes completely.',
+                      'isolates_main_thread_warning'.tr,
                       style: TextStyle(color: Colors.red[700], fontWeight: FontWeight.w500),
                     ),
                     Text(
-                      '• Isolate.spawn: The spinner keeps spinning smoothly.',
+                      'isolates_spawn_info'.tr,
                       style: TextStyle(color: Colors.green[700], fontWeight: FontWeight.w500),
                     ),
                   ],
@@ -149,7 +149,7 @@ class _IsolatesSimpleHomeState extends State<IsolatesSimpleHome> {
                   const CircularProgressIndicator(),
                   const SizedBox(height: 12),
                   Text(
-                    _isLoading ? 'Computing...' : 'UI Thread Active / Idle',
+                    _isLoading ? 'isolates_computing'.tr : 'isolates_idle'.tr,
                     style: TextStyle(color: Colors.grey[600], fontStyle: FontStyle.italic),
                   ),
                 ],
@@ -166,7 +166,7 @@ class _IsolatesSimpleHomeState extends State<IsolatesSimpleHome> {
                 side: BorderSide(color: Colors.red[200]!),
                 padding: const EdgeInsets.symmetric(vertical: 14),
               ),
-              child: const Text('Run on Main Thread (Blocks UI)', style: TextStyle(fontWeight: FontWeight.bold)),
+              child: Text('isolates_run_main_thread'.tr, style: const TextStyle(fontWeight: FontWeight.bold)),
             ),
             const SizedBox(height: 12),
             ElevatedButton(
@@ -177,7 +177,7 @@ class _IsolatesSimpleHomeState extends State<IsolatesSimpleHome> {
                 side: BorderSide(color: Colors.green[200]!),
                 padding: const EdgeInsets.symmetric(vertical: 14),
               ),
-              child: const Text('Run on Isolate (Smooth)', style: TextStyle(fontWeight: FontWeight.bold)),
+              child: Text('isolates_run_isolate'.tr, style: const TextStyle(fontWeight: FontWeight.bold)),
             ),
             const SizedBox(height: 30),
 
@@ -185,13 +185,13 @@ class _IsolatesSimpleHomeState extends State<IsolatesSimpleHome> {
             const Divider(),
             const SizedBox(height: 10),
             Text(
-              'Method: $_runMethod',
+              'isolates_method_label'.trParams({'method': _runMethod}),
               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             const SizedBox(height: 8),
-            Text('Execution Time: $_executionTime'),
+            Text('isolates_time_label'.trParams({'time': _executionTime})),
             const SizedBox(height: 8),
-            Text('Result: $_result'),
+            Text('isolates_result_label'.trParams({'result': _result})),
           ],
         ),
       ),

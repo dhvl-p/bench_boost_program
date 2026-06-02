@@ -18,11 +18,11 @@ class GetxHome extends StatelessWidget {
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => Get.back(),
         ),
-        title: const Text(
-          'GetX Photos',
-          style: TextStyle(
+        title: Text(
+          'getx_app_bar_title'.tr,
+          style: const TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
             fontSize: 22,
@@ -54,7 +54,7 @@ class GetxHome extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 Text(
-                  'Loading Photos...',
+                  'loading_photos'.tr,
                   style: TextStyle(
                     color: Colors.black.withValues(alpha: 0.7),
                     fontSize: 16,
@@ -80,9 +80,9 @@ class GetxHome extends StatelessWidget {
                     color: Colors.redAccent.withValues(alpha: 0.7),
                   ),
                   const SizedBox(height: 20),
-                  const Text(
-                    'Oops! Something went wrong',
-                    style: TextStyle(
+                  Text(
+                    'error_something_wrong'.tr,
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -102,7 +102,7 @@ class GetxHome extends StatelessWidget {
                   ElevatedButton.icon(
                     onPressed: () => controller.refreshPhotos(),
                     icon: const Icon(Icons.refresh),
-                    label: const Text('Retry'),
+                    label: Text('retry'.tr),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFE2B714),
                       foregroundColor: Colors.black,
@@ -132,7 +132,7 @@ class GetxHome extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'No photos found',
+                  'no_photos_found'.tr,
                   style: TextStyle(
                     color: Colors.white.withValues(alpha: 0.5),
                     fontSize: 18,
@@ -170,7 +170,7 @@ class GetxHome extends StatelessWidget {
                             size: 16, color: Color(0xFFE2B714)),
                         const SizedBox(width: 6),
                         Text(
-                          '${controller.photos.length} Photos',
+                          'photos_count'.trParams({'count': '${controller.photos.length}'}),
                           style: const TextStyle(
                             color: Color(0xFFE2B714),
                             fontWeight: FontWeight.w600,
@@ -182,7 +182,7 @@ class GetxHome extends StatelessWidget {
                   ),
                   const Spacer(),
                   Text(
-                    'Powered by GetX',
+                    'powered_by_getx'.tr,
                     style: TextStyle(
                       color: Colors.white.withValues(alpha: 0.3),
                       fontSize: 12,

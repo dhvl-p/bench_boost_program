@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'main.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -90,19 +91,10 @@ class _SplashScreenState extends State<SplashScreen>
     // Navigate to home after delay
     Future.delayed(const Duration(milliseconds: 3000), () {
       if (mounted) {
-        Navigator.of(context).pushReplacement(
-          PageRouteBuilder(
-            pageBuilder: (context, animation, secondaryAnimation) =>
-                const MyHomePage(title: 'Bench Booster'),
-            transitionsBuilder:
-                (context, animation, secondaryAnimation, child) {
-              return FadeTransition(
-                opacity: animation,
-                child: child,
-              );
-            },
-            transitionDuration: const Duration(milliseconds: 500),
-          ),
+        Get.off(
+          () => MyHomePage(title: 'app_title'.tr),
+          transition: Transition.fade,
+          duration: const Duration(milliseconds: 500),
         );
       }
     });
@@ -209,9 +201,9 @@ class _SplashScreenState extends State<SplashScreen>
                                 Color(0xFFFFA500),
                               ],
                             ).createShader(bounds),
-                            child: const Text(
-                              'Bench Booster',
-                              style: TextStyle(
+                            child: Text(
+                              'app_title'.tr,
+                              style: const TextStyle(
                                 fontSize: 36,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
@@ -221,7 +213,7 @@ class _SplashScreenState extends State<SplashScreen>
                           ),
                           const SizedBox(height: 8),
                           Text(
-                            'Boost Your Performance',
+                            'splash_tagline'.tr,
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w300,
