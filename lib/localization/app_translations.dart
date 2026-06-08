@@ -117,6 +117,75 @@ const Map<String, String> _en = {
   'chat_input_hint': 'Message…',
   'chat_today': 'Today',
   'chat_yesterday': 'Yesterday',
+
+  // ── Responsive Portfolio ─────────────────────────────────────────────────
+  // Nav bar
+  'pf_brand_handle':        '@SamInfotech',
+  'pf_nav_about':           'About',
+  'pf_nav_services':        'Services',
+  'pf_nav_skills':          'Skills',
+  'pf_nav_projects':        'Projects',
+  'pf_nav_contact':         'Contact',
+  'pf_nav_open_menu':       'Open menu',
+  'pf_nav_close_menu':      'Close menu',
+  'pf_nav_dark_mode':       'Dark Mode',
+
+  // Hero
+  'pf_hero_greeting':       "Hi, I'm Dhaval 👋",
+  'pf_hero_bio':
+      'Experienced Android Developer and Team Lead with a passion for '
+      'crafting high-quality mobile apps. Skilled in code review, task '
+      'management, and clean architecture. Committed to fostering a '
+      'collaborative learning environment. Author on Medium, sharing '
+      'insights on mobile app development.',
+  'pf_hero_location':       'Ahmedabad, India',
+  'pf_hero_available':      'Available for new projects',
+  'pf_hero_connect_me':     'Connect Me',
+
+  // About
+  'pf_about_label':         'About Me',
+  'pf_about_heading':       'Interested in learning more about me?',
+  'pf_about_bullet1_title': 'Mobile Developer & Team Lead',
+  'pf_about_bullet1_body':
+      "With 11+ years in mobile app development, I've evolved into a "
+      'Mobile Developer and Team Lead. Passionate about clean code and '
+      'effective team collaboration, striving for top-tier mobile apps. '
+      "Beyond coding, I'm an educator dedicated to sharing knowledge "
+      "and inspiring others. Let's connect to innovate!",
+  'pf_about_bullet2_title': 'Tech Enthusiast & Educator',
+  'pf_about_bullet2_body':
+      "In addition to app development, I'm an enthusiastic writer and "
+      'educator. I regularly share insights on technology and '
+      'programming, particularly in mobile development, helping others '
+      'navigate the ever-evolving tech landscape.',
+
+  // Skills
+  'pf_skills_label':        'Skills',
+  'pf_skills_heading':      'My Technical Expertise',
+  'pf_skills_subheading':   'Technologies and tools I work with daily.',
+
+  // Projects
+  'pf_projects_label':      'Projects',
+  'pf_projects_heading':    'Featured Work',
+  'pf_projects_subheading': 'A selection of projects I have built.',
+  'pf_project1_title':      'Bench Booster',
+  'pf_project1_desc':
+      'A Flutter learning app demonstrating state management patterns '
+      '(Provider, Riverpod, GetX, MobX) along with GraphQL, Isolates, '
+      'and WebSocket chat.',
+  'pf_project2_title':      'WebSocket Echo Chat',
+  'pf_project2_desc':
+      'Real-time chat UI built with Flutter GetX and WebSocket '
+      'integration. Features typing indicators, connection states, and '
+      'message bubbles.',
+  'pf_project3_title':      'TechShop Cart',
+  'pf_project3_desc':
+      'A cart demo showcasing lifting state up pattern in Flutter with '
+      'animated transitions between product catalog and cart detail '
+      'screens.',
+
+  // Footer
+  'pf_footer_text': '© 2026 @SamInfotech · Built with Flutter & LayoutBuilder',
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -228,4 +297,70 @@ const Map<String, String> _hi = {
   'chat_input_hint': 'संदेश…',
   'chat_today': 'आज',
   'chat_yesterday': 'कल',
+
+  // ── Responsive Portfolio ─────────────────────────────────────────────────
+  // Nav bar
+  'pf_brand_handle':        '@SamInfotech',
+  'pf_nav_about':           'परिचय',
+  'pf_nav_services':        'सेवाएं',
+  'pf_nav_skills':          'कौशल',
+  'pf_nav_projects':        'परियोजनाएं',
+  'pf_nav_contact':         'संपर्क',
+  'pf_nav_open_menu':       'मेनू खोलें',
+  'pf_nav_close_menu':      'मेनू बंद करें',
+  'pf_nav_dark_mode':       'डार्क मोड',
+
+  // Hero
+  'pf_hero_greeting':       'नमस्ते, मैं धवल हूं 👋',
+  'pf_hero_bio':
+      'अनुभवी एंड्रॉयड डेवलपर और टीम लीड, उच्च-गुणवत्ता वाले मोबाइल '
+      'ऐप्स बनाने के प्रति उत्साहित। कोड समीक्षा, कार्य प्रबंधन और '
+      'स्वच्छ आर्किटेक्चर में कुशल। सहयोगी सीखने के वातावरण को '
+      'बढ़ावा देने के लिए प्रतिबद्ध। मीडियम पर लेखक।',
+  'pf_hero_location':       'अहमदाबाद, भारत',
+  'pf_hero_available':      'नई परियोजनाओं के लिए उपलब्ध',
+  'pf_hero_connect_me':     'संपर्क करें',
+
+  // About
+  'pf_about_label':         'मेरे बारे में',
+  'pf_about_heading':       'मेरे बारे में और जानना चाहते हैं?',
+  'pf_about_bullet1_title': 'मोबाइल डेवलपर और टीम लीड',
+  'pf_about_bullet1_body':
+      '11+ वर्षों के मोबाइल ऐप विकास के साथ, मैं एक मोबाइल डेवलपर और '
+      'टीम लीड के रूप में विकसित हुआ हूं। स्वच्छ कोड और प्रभावी टीम '
+      'सहयोग के प्रति उत्साहित। शीर्ष स्तर के मोबाइल ऐप्स बनाने के '
+      'लिए प्रयासरत।',
+  'pf_about_bullet2_title': 'टेक उत्साही और शिक्षक',
+  'pf_about_bullet2_body':
+      'ऐप विकास के अलावा, मैं एक उत्साही लेखक और शिक्षक हूं। मैं '
+      'नियमित रूप से प्रौद्योगिकी और प्रोग्रामिंग पर, विशेष रूप से '
+      'मोबाइल विकास में, अंतर्दृष्टि साझा करता हूं।',
+
+  // Skills
+  'pf_skills_label':        'कौशल',
+  'pf_skills_heading':      'मेरी तकनीकी विशेषज्ञता',
+  'pf_skills_subheading':   'प्रौद्योगिकियाँ और उपकरण जो मैं रोज़ उपयोग करता हूं।',
+
+  // Projects
+  'pf_projects_label':      'परियोजनाएं',
+  'pf_projects_heading':    'विशेष कार्य',
+  'pf_projects_subheading': 'मेरे द्वारा बनाई गई कुछ परियोजनाएं।',
+  'pf_project1_title':      'बेंच बूस्टर',
+  'pf_project1_desc':
+      'एक Flutter लर्निंग ऐप जो Provider, Riverpod, GetX, MobX जैसे '
+      'स्टेट मैनेजमेंट पैटर्न के साथ GraphQL, Isolates और WebSocket '
+      'चैट प्रदर्शित करता है।',
+  'pf_project2_title':      'वेबसॉकेट इको चैट',
+  'pf_project2_desc':
+      'Flutter GetX और WebSocket एकीकरण के साथ निर्मित रीयल-टाइम '
+      'चैट UI। टाइपिंग संकेतक, कनेक्शन स्थिति और संदेश बुलबुले '
+      'सुविधाएं।',
+  'pf_project3_title':      'टेकशॉप कार्ट',
+  'pf_project3_desc':
+      'Flutter में लिफ्टिंग स्टेट अप पैटर्न का प्रदर्शन करने वाला '
+      'कार्ट डेमो, प्रोडक्ट कैटलॉग और कार्ट स्क्रीन के बीच '
+      'एनिमेटेड ट्रांज़िशन के साथ।',
+
+  // Footer
+  'pf_footer_text': '© 2026 @SamInfotech · Flutter और LayoutBuilder के साथ बनाया गया',
 };

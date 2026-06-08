@@ -1,4 +1,5 @@
 import 'package:bench_boost_program/getx/GetxGraphQLHome.dart';
+import 'package:bench_boost_program/responsive_portfolio/portfolio_page.dart';
 import 'package:bench_boost_program/websocket_chat/WebSocketChatHome.dart';
 import 'package:bench_boost_program/getx/GetxHome.dart';
 import 'package:bench_boost_program/isolates/isolates_simple_home.dart';
@@ -79,6 +80,7 @@ class MyHomePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white70,
         title: Text('app_title'.tr),
         actions: [
           // Obx wraps ONLY the toggle button — the only widget that needs
@@ -162,6 +164,12 @@ class MyHomePage extends StatelessWidget {
             title: Text('nav_lifting_state'.tr, style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 24)),
             trailing: const Icon(Icons.chevron_right),
             onTap: () => Get.to(() => const CartDemoHome()),
+          ),
+          const Divider(height: 1, thickness: 2, color: Colors.grey, indent: 16, endIndent: 16),
+          ListTile(
+            title: const Text('Responsive Portfolio (LayoutBuilder)', style: TextStyle(fontWeight: FontWeight.w400, fontSize: 24)),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => Get.to(() => const PortfolioPage()),
           ),
         ],
       ),

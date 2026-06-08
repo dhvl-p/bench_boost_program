@@ -217,8 +217,14 @@ class _MobxHomeState extends State<MobxHome> {
                 onRefresh: () => store.refreshPhotos(),
                 child: GridView.builder(
                   padding: const EdgeInsets.all(12),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: MediaQuery.of(context).size.width > 1200
+                        ? 6
+                        : MediaQuery.of(context).size.width > 900
+                            ? 4
+                            : MediaQuery.of(context).size.width > 600
+                                ? 3
+                                : 2,
                     childAspectRatio: 0.75,
                     crossAxisSpacing: 12,
                     mainAxisSpacing: 12,
